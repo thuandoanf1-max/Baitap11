@@ -1,0 +1,59 @@
+<c:set var="isbnValue" value="${not empty param.isbn ? param.isbn : book.isbn}"/>
+<c:set var="titleValue" value="${not empty param.title ? param.title : book.title}"/>
+<c:set var="publisherValue" value="${not empty param.publisher ? param.publisher : book.publisher}"/>
+<c:set var="priceValue" value="${not empty param.price ? param.price : book.price}"/>
+<c:set var="descriptionValue" value="${not empty param.description ? param.description : book.description}"/>
+<c:set var="publishDateValue" value="${not empty param.publishDate ? param.publishDate : book.publishDate}"/>
+<c:set var="coverImageValue" value="${not empty param.coverImage ? param.coverImage : book.coverImage}"/>
+<c:set var="quantityValue" value="${not empty param.quantity ? param.quantity : book.quantity}"/>
+
+<div class="admin-form-grid">
+    <div class="field">
+        <label for="isbn">Mã ISBN *</label>
+        <input id="isbn" name="isbn" type="number" min="1" step="1" required
+               value="<c:out value='${isbnValue}'/>">
+    </div>
+
+    <div class="field">
+        <label for="title">Tiêu đề *</label>
+        <input id="title" name="title" type="text" maxlength="200" required
+               value="<c:out value='${titleValue}'/>">
+    </div>
+
+    <div class="field">
+        <label for="publisher">Publisher *</label>
+        <input id="publisher" name="publisher" type="text" maxlength="100" required
+               value="<c:out value='${publisherValue}'/>">
+    </div>
+
+    <div class="field">
+        <label for="price">Giá *</label>
+        <input id="price" name="price" type="number" min="0" max="9999.99" step="0.01" required
+               value="<c:out value='${priceValue}'/>">
+    </div>
+
+    <div class="field">
+        <label for="publishDate">Publish date *</label>
+        <input id="publishDate" name="publishDate" type="date" required
+               value="<c:out value='${publishDateValue}'/>">
+    </div>
+
+    <div class="field">
+        <label for="quantity">Quantity *</label>
+        <input id="quantity" name="quantity" type="number" min="0" step="1" required
+               value="<c:out value='${quantityValue}'/>">
+    </div>
+
+    <div class="field field-full">
+        <label for="coverImage">Cover image</label>
+        <input id="coverImage" name="coverImage" type="text" maxlength="100"
+               placeholder="Ví dụ: book-13.jpg"
+               value="<c:out value='${coverImageValue}'/>">
+    </div>
+
+    <div class="field field-full">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="6" maxlength="5000"
+                  placeholder="Mô tả nội dung sách"><c:out value="${descriptionValue}"/></textarea>
+    </div>
+</div>
